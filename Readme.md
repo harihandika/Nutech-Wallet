@@ -20,14 +20,32 @@
 1. Disini saya menggunakan konten base dikarenakan link yang diberikan tidak ada (not found)
 ![image](./Screenshot%20(50).png)
 2. Halaman awal berupa halaman welcome
+
+
 ![image](./Screenshot%20(43).png)
+
+
 3. Lalu terdapat halaman Register
+
+
 ![image](./Screenshot%20(45).png)
+
+
 4. Halaman Login
+
+
 ![image](./Screenshot%20(44).png)
+
+
 5. Halaman Home dengan fitur log out di foto profile
+
+
 ![image](./Screenshot%20(46).png)
+
+
 6. Halaman Update Profile
+
+
 ![image](./Screenshot%20(47).png)
 7. Halaman Transaksi
 ![image](./Screenshot%20(48).png)
