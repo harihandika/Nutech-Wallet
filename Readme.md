@@ -47,9 +47,19 @@
 
 
 ![image](./Screenshot%20(47).png)
+
+
 7. Halaman Transaksi
+
+
 ![image](./Screenshot%20(48).png)
+
+
 8. Halaman Transfer dan Top Up
+
+
 ![image](./Screenshot%20(49).png)
+
+
 
 ### Noted: Calender date just from 22-10-2022 23.59
