@@ -23,6 +23,7 @@ function Home({ navigation }) {
     category: "",
     status: "",
   });
+  let id = state?.data?.user?._id
 
   const [tempDataFilter, setTempDataFilter] = useState({
     date: "",
@@ -86,8 +87,12 @@ function Home({ navigation }) {
       message: "Logout berhasil!",
       type: "success",
     });
-  }
-let id = state?.data?.user?._id 
+  } 
+
+useEffect(() => {
+  API.get(`/Users/${id}`)
+}, []);
+
   return (
     <Box display="flex" flex={1} alignItems="center" bg="white" marginBottom={25}>
       <Box display="flex" flexDirection="row" w={"85%"} mt={10} mb={5}>

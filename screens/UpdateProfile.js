@@ -1,5 +1,5 @@
 import { Box, Button, Input, Text } from "native-base";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { showMessage } from "react-native-flash-message";
 import { useMutation, useQuery } from "react-query";
 import { API } from "../config/api";
@@ -13,7 +13,7 @@ function Update({ navigation }) {
     lastName:"",
   });
   let id = state?.data?.user?._id
-  let { data: users, refetch} = useQuery("usersChache", async () => {
+  let { data: users, refetch : listRefetch } = useQuery("usersChache", async () => {
     const response = await API.get(`/Users/${id}`);
     console.log(response)
     setDataCategory({
@@ -57,14 +57,26 @@ function Update({ navigation }) {
     },
   ];
 
-  async function handleUpdate() {
+  async function handleUpdateIsDone(e) {
     e.preventDefault();
     try {
-      await API.patch(`/Users/${id}`);
+      const update = await API.patch(
+        `/Users/${id}`,
+        { validateStatus: () => true }
+      );
+      listRefetch();
+      navigation.navigate("Home")
     } catch (err) {
-      console.log(error);
+      showMessage({
+        message: "Gagal mengubah status todo!",
+        type: "danger",
+      });
     }
   }
+
+  useEffect(() => {
+    listRefetch();
+  }, [users]);
 
   return (
     <Box display="flex" w={"100%"} mt={5} alignItems="center" >
@@ -120,7 +132,7 @@ function Update({ navigation }) {
           fontSize: "md",
           fontWeight: "bold",
         }}
-        onPress={(e) => handleUpdate}
+        onPress={(e) => handleUpdateIsDone(e)}
       >
         Update Profile
       </Button>
